@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing Maven...
+      - mvn install -DskipTests
+
+  build:
+    commands:
+      - echo Building the project...
+      - mvn package
+      - mv target/*.war target/ROOT.war
+
+artifacts:
+  base-directory: target  
+  files:
+    - "*.war"  
